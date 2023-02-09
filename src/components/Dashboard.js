@@ -5,7 +5,7 @@ function Dashboard() {
 	const navigate = useNavigate();
 	const [loggedIn, setloggedIn] = useState(false);
 	useEffect(() => {
-		if (localStorage.getItem("userInfo") && JSON.parse(localStorage.getItem("userInfo")).loggedIn) {
+		if (localStorage.getItem("userInfo") && JSON.parse(localStorage.getItem("userInfo")).token) {
 			setloggedIn(true);
 		} else {
 			setloggedIn(false);

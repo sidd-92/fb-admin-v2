@@ -7,11 +7,11 @@ function LayoutContainer() {
 	const navigate = useNavigate();
 	const [loggedIn, setloggedIn] = useState(false);
 	useEffect(() => {
-		if (localStorage.getItem("userInfo") && JSON.parse(localStorage.getItem("userInfo")).loggedIn) {
+		if (localStorage.getItem("userInfo") && JSON.parse(localStorage.getItem("userInfo")).token) {
 			setloggedIn(true);
 		} else {
 			setloggedIn(false);
-			navigate("/login");
+			navigate("/login", { replace: true });
 		}
 	}, []);
 	return (
@@ -43,7 +43,7 @@ function LayoutContainer() {
 			{/* An <Outlet> renders whatever child route is currently active,
   so you can think about this <Outlet> as a placeholder for
   the child routes we defined above. */}
-			<div className="m-8">
+			<div className="m-1">
 				<Outlet />
 			</div>
 		</div>
